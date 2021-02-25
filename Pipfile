@@ -15,6 +15,7 @@ simpleitk = "*"
 pillow = "*"
 seaborn = "*"
 pandas = "*"
+ipykernel = "*"
 
 [dev-packages]
 
