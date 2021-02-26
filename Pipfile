@@ -17,6 +17,7 @@ seaborn = "*"
 pandas = "*"
 ipykernel = "*"
 ipyvolume = "*"
+jupyterlab = "*"
 
 [dev-packages]
 
