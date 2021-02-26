@@ -6,6 +6,7 @@ import mahotas as mh
 import os
 from glob import glob
 import json
+import ipyvolume as ipv
 
 
 # Explore files
@@ -50,4 +51,4 @@ for grade in Dataset.keys(): # HG LG
 # Print Dataset for easy reading
 print(json.dumps(Dataset, indent=4))
         
-img = itk.ReadImage(Dataset['HG']['0001']['Flair'])
+img = itk.GetArrayFromImage(itk.ReadImage(Dataset['HG']['0001']['Flair']))

@@ -16,6 +16,7 @@ pillow = "*"
 seaborn = "*"
 pandas = "*"
 ipykernel = "*"
+ipyvolume = "*"
 
 [dev-packages]
 
