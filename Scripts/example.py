@@ -7,25 +7,40 @@ import os
 from glob import glob
 
 
-# Explore images
-path = "/home/atoriz98/Datasets/BrainGliomas/GliomasImages/"
-files = {}
+# Explore files
+path = "/home/atoriz98/Datasets/BrainGliomas/GliomasImages"
 
-for dir1 in glob(path+"*/"):
-    files[dir1] = {}
-    for dir2 in glob(dir1+"*/"):
-        files[dir1][dir2] = {}
-        for dir3 in glob(dir2+"*/"):
-            files[dir1][dir2][dir3] = {}
-            for dir4 in glob(dir3+"*/"):
-                files[dir1][dir2][dir3][dir4] = {}
-    #for key2 in files[key].keys():
-    #    for dir3 in glob(key2+"*/"):
-    #        print(dir3)
-            #for key in files.keys():
-            #    files[key][dir2][dir3] = {}
-            #print(dir3)
-        #for dir3 in glob(key2+"*/"):
-        #    files[key][key2][dir3] = {}    
+files = glob(path + "/**/*.mha", recursive = True)
+
+# Dictionaries and list to organize files
+Dataset = {'HG': {}, 'LG': {}}
+id_HG = np.asarray([])
+id_LG = np.asarray([])
+
+# Image types
+types = ['Flair', 'T1', 'T1c', 'T2', 'OT']
+
+for file in files:
+    if 'HG' in file:
+        id_HG = np.append(id_HG, file.split('/')[7])
+    else:
+        id_LG = np.append(id_LG, file.split('/')[7])
+
+for unique in np.unique(id_HG):
+    Dataset['HG'][unique] = {}
+    for img in types:
+        Dataset['HG'][unique][img] = {}
+for unique in np.unique(id_LG):
+    Dataset['LG'][unique] = {}
+    for img in types:
+        Dataset['LG'][unique][img] = {}
+    
+for grade in Dataset.keys(): # HG LG
+    for case in Dataset[grade].keys(): # Num
+        for img in types: # Flair, Tc1, Tc2 ...
+            for file in files:
+                route = file.split('/')
+                if route[6] == grade and route[7] == case and route[8].endswith(img):
+                    Dataset[grade][case][img] = file
         
-#print(files) 
+        
