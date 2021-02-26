@@ -16,8 +16,8 @@ pillow = "*"
 seaborn = "*"
 pandas = "*"
 ipykernel = "*"
-ipyvolume = "*"
 jupyterlab = "*"
+itkwidgets = "*"
 
 [dev-packages]
 
