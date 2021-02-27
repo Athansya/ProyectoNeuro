@@ -11,12 +11,11 @@ matplotlib = "*"
 scikit-image = "*"
 scikit-learn = "*"
 gdown = "*"
-simpleitk = "*"
 pillow = "*"
 seaborn = "*"
 pandas = "*"
-ipykernel = "*"
 jupyterlab = "*"
+itk = "*"
 itkwidgets = "*"
 
 [dev-packages]
