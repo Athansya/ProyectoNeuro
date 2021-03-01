@@ -17,6 +17,7 @@ pandas = "*"
 jupyterlab = "*"
 itk = "*"
 itkwidgets = "*"
+python-language-server = {extras = ["all"], version = "*"}
 
 [dev-packages]
 
