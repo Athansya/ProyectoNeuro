@@ -18,6 +18,7 @@ jupyterlab = "*"
 itk = "*"
 itkwidgets = "*"
 python-language-server = {extras = ["all"], version = "*"}
+simpleitk = "*"
 
 [dev-packages]
 
